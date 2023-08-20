@@ -2,6 +2,24 @@
 
 Creare una mappa delle capitali europee più vicine ai comuni italiani usando QGIS.
 
+------------- IN COSTRUZIONE ---------- 
+
+<!-- TOC -->
+
+- [cityEuropee\_piu\_vicine](#cityeuropee_piu_vicine)
+- [INTRO](#intro)
+- [FLOWCHART](#flowchart)
+  - [tematizzare i punti usando l'attributo Capital](#tematizzare-i-punti-usando-lattributo-capital)
+  - [poligoni di voronoi](#poligoni-di-voronoi)
+  - [tematizzare i poligoni di voronoi con lo stesso tema](#tematizzare-i-poligoni-di-voronoi-con-lo-stesso-tema)
+    - [espressione utilizzata](#espressione-utilizzata)
+  - [assegnare comune](#assegnare-comune)
+  - [Campi virtuali](#campi-virtuali)
+- [RIFERIMENTI](#riferimenti)
+- [DISCLAIMER](#disclaimer)
+
+<!-- /TOC -->
+
 # INTRO
 
 Creare una mappa delle capitali europee più vicine ai comuni italiani usando QGIS e tematizzando i comuni in funzione del tema del punto che caratterizza la capitale europea.
@@ -60,6 +78,14 @@ ricordo che l'attributo `colore` del layer `voronoi` è un campo virtuale popola
 
 ## Campi virtuali
 
-Avendo utilizzato i campi virtuali ora sarà semplice ed immediato cambiare il tema ai punti e di conseguenza cambieranno i colori dei comuni. È una operazione un po' pesante e dipende molto dalle risorse del PC.
+Avendo utilizzato i campi virtuali ora sarà semplice ed immediato cambiare il tema ai punti e di conseguenza cambieranno i colori dei comuni. È una operazione un po' pesante e dipende molto dalle risorse del PC. (PURTROPPO CAMBIANDO I TEMI DEI PUNTI QGIS CRASHA, QUI ISSUE)
 
-esempio:
+# RIFERIMENTI
+
+- <https://puntofisso.net/blog/posts/qgis-closest-capital/>
+- QGIS: https://www.qgis.org/it/site/
+
+
+# DISCLAIMER
+
+Il presente contenuto è stato realizzato da _**Salvatore Fiandaca**_ nel mese di agosto 2023 utilizzando [QGIS 3.28 Firenze LTR](https://qgis.org/it/site/) e distribuito con licenza [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.it)
