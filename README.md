@@ -78,7 +78,7 @@ ricordo che l'attributo `colore` del layer `voronoi` è un campo virtuale popola
 
 ## Campi virtuali
 
-Avendo utilizzato i campi virtuali ora sarà semplice ed immediato cambiare il tema ai punti e di conseguenza cambieranno i colori dei comuni. È una operazione un po' pesante e dipende molto dalle risorse del PC. (PURTROPPO CAMBIANDO I TEMI DEI PUNTI QGIS CRASHA, QUI ISSUE)
+Avendo utilizzato i campi virtuali ora sarà semplice ed immediato cambiare il tema ai punti e di conseguenza cambieranno i colori dei comuni. È una operazione un po' pesante e dipende molto dalle risorse del PC. (PURTROPPO CAMBIANDO I TEMI DEI PUNTI QGIS CRASHA, QUI [ISSUE](https://github.com/ghtmtt/DataPlotly/issues/335))
 
 # RIFERIMENTI
 
