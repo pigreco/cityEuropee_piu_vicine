@@ -150,7 +150,7 @@ overlay_contains(
 
 ## demo
 
-https://youtu.be/bnAOEsrVgmw
+[![](https://img.youtube.com/vi/bnAOEsrVgmw/0.jpg)](https://youtu.be/bnAOEsrVgmw "Video")
 
 # RIFERIMENTI
 
