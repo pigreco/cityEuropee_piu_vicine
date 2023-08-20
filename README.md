@@ -138,9 +138,9 @@ def get_cat_param( vlayer, cat_field, param, feature, parent):
     return ret_val
 ```
 
-sostituire alla funzione precedentemente utilizzata (`get_symbol_colors()`) la seguente stringa `get_cat_param( 'capitali_europee', "Capital" ,'color')`
+sostituire alla espressione precedentemente utilizzata (`get_symbol_colors()`) la seguente espressione `get_cat_param( 'capitali_europee', "Capital" ,'color')`
 
-in sostanza la funzione da utilizzare è:
+in sostanza l' espressione da utilizzare è:
 
 ```
 overlay_contains(
