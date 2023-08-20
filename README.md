@@ -80,6 +80,73 @@ ricordo che l'attributo `colore` del layer `voronoi` è un campo virtuale popola
 
 Avendo utilizzato i campi virtuali ora sarà semplice ed immediato cambiare il tema ai punti e di conseguenza cambieranno i colori dei comuni. È una operazione un po' pesante e dipende molto dalle risorse del PC. (PURTROPPO CAMBIANDO I TEMI DEI PUNTI QGIS CRASHA, QUI [ISSUE](https://github.com/ghtmtt/DataPlotly/issues/335))
 
+Per ovviare al problema (nell'attesa che risolvano il bug) utilizzare la seguente funzione personalizzata (realizzata dall'amico G. Fattori):
+
+```py
+from qgis.core import *
+from qgis.gui import *
+from qgis.utils import iface
+
+@qgsfunction(args='auto',  group='Custom')
+def get_cat_param( vlayer, cat_field, param, feature, parent):
+    """
+    Dato un layer <b>categorizzato con riempimento semplice</b> restituisce i parametri di impostazione
+    <ol>
+        <li>parametro: <b>layer</b></li>
+        <li>parametro: <b>campo categorizzazione </b></li>
+        <li>parametro scelto tra:</li>
+            <ul>
+                <li><b>'color'</b> &nbsp; colore riempimento</li>
+                <li><b>'style'</b> &nbsp; stile riempimento</li>
+                <li><b>'outline_color'</b> &nbsp; colore tratto</li>
+                <li><b>'outline_width'</b> &nbsp; spessore tratto</li>
+                <li><b>'outline_style'</b> &nbsp; stile tratto</li>
+                <li><b>'joinstyle'</b> &nbsp; stile unione</li>
+                <li><b>'offset'</b> &nbsp; spostamento</li>
+            </ul>
+    </ol>
+    <p>Per campi di categorizzazione numerici formattatarli come nell'esempio<p>
+    
+    <h4>Example usage:</h4>
+    <ul>
+      <li>get_cat_param('layer', 'campo_cat' ,'color') -> '228,52,199,255'</li>
+      <li>get_cat_param('layer', to_string(format_number('"'nomeCampoCategoria'"',2)),'color') -> '228,52,199,255'</li>
+    </ul>
+    """
+
+    layer = QgsProject.instance().mapLayersByName(vlayer)[0]
+    renderer = layer.renderer()
+    ret_val = ''
+    
+    if param not in ('color', 'style', 'outline_color', 'outline_width', 'outline_style', 'joinstyle', 'offset'):
+        ret_val = "<strong><font color='red'>NOT VALID PARAM</strong>"
+    
+    else:
+        if layer.renderer().type() == "categorizedSymbol":
+            campo = renderer.legendClassificationAttribute()
+
+            for cat in renderer.categories():
+                if str(cat_field) == str(cat.value()):
+                    ret_val = cat.symbol().symbolLayer(0).properties()[param]
+                    break
+                else:
+                    ret_val = "<strong><font color='red'>Categorized by " + campo + "</strong>"
+        else:
+            ret_val = "<strong><font color='red'>NOT CATEGORIZED LAYER</strong>"
+        
+    return ret_val
+```
+
+sostituire alla funzione precedentemente utilizzata (`get_symbol_colors()`) la seguente stringa `get_cat_param( 'capitali_europee', "Capital" ,'color')`
+
+in sostanza la funzione da utilizzare è:
+
+```
+overlay_contains(
+  layer:='capitali_europee', 
+  expression:=get_cat_param( 'capitali_europee', "Capital" ,'color'))[0]
+```
+
 # RIFERIMENTI
 
 - <https://puntofisso.net/blog/posts/qgis-closest-capital/>
