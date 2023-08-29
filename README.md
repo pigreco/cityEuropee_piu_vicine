@@ -155,6 +155,7 @@ overlay_contains(
 # RIFERIMENTI
 
 - <https://puntofisso.net/blog/posts/qgis-closest-capital/>
+- newsletter Puntofisso: <https://buttondown.email/puntofisso/archive/532-quantum-of-sollazzo/>
 - QGIS: https://www.qgis.org/it/site/
 
 
