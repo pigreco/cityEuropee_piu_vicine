@@ -2,8 +2,6 @@
 
 Creare una mappa delle capitali europee più vicine ai comuni italiani usando QGIS.
 
-------------- IN COSTRUZIONE ---------- 
-
 <!-- TOC -->
 
 - [cityEuropee\_piu\_vicine](#cityeuropee_piu_vicine)
